@@ -183,6 +183,7 @@ Download the latest version from [here](https://github.com/vnpy/vnpy/releases), 
 
 ```
 install.bat
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 ```
 
 **Ubuntu**
