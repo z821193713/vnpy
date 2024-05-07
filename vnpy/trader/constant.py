@@ -98,6 +98,7 @@ class Exchange(Enum):
     WXE = "WXE"             # Wuxi Steel Exchange
     CFETS = "CFETS"         # CFETS Bond Market Maker Trading System
     XBOND = "XBOND"         # CFETS X-Bond Anonymous Trading System
+    BINANCE = "BINANCE"         # BINANCE Trading System
 
     # Global
     SMART = "SMART"         # Smart Router for US stocks

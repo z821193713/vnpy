@@ -73,6 +73,7 @@ def get_file_path(filename: str) -> Path:
     """
     Get path for temp file with filename.
     """
+    print("database path {}".format(TEMP_DIR.joinpath(filename)))
     return TEMP_DIR.joinpath(filename)
 
 
@@ -878,6 +879,27 @@ class ArrayManager(object):
         down: Union[float, np.ndarray] = mid - std * dev
 
         return up, down
+
+    def boll_mid_precent(
+        self,
+        n: int,
+        dev: float,
+        array: bool = False
+    ) -> Union[
+        Tuple[np.ndarray, np.ndarray],
+        Tuple[float, float, float, float]
+    ]:
+        """
+        Bollinger Channel.
+        """
+        mid: Union[float, np.ndarray] = self.sma(n, array)
+        std: Union[float, np.ndarray] = self.std(n, 1, array)
+
+        up: Union[float, np.ndarray] = mid + std * dev
+        down: Union[float, np.ndarray] = mid - std * dev
+        boll_precent: Union[float, np.ndarray] = ((self.close[-1] - down) / (up - down)) * 100
+
+        return up, down, mid, boll_precent
 
     def keltner(
         self,

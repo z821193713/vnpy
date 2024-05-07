@@ -41,16 +41,23 @@ from vnpy_datamanager import DataManagerApp
 # from vnpy_webtrader import WebTraderApp
 # from vnpy_portfoliomanager import PortfolioManagerApp
 
+from vnpy_binance import (
+    BinanceSpotGateway,
+    BinanceLinearGateway,
+    BinanceInverseGateway
+)
 
 def main():
     """"""
     qapp = create_qapp()
 
     event_engine = EventEngine()
-
     main_engine = MainEngine(event_engine)
 
-    main_engine.add_gateway(CtpGateway)
+    main_engine.add_gateway(BinanceSpotGateway)
+    main_engine.add_gateway(BinanceLinearGateway)
+    main_engine.add_gateway(BinanceInverseGateway)
+    # main_engine.add_gateway(CtpGateway)
     # main_engine.add_gateway(CtptestGateway)
     # main_engine.add_gateway(MiniGateway)
     # main_engine.add_gateway(FemasGateway)
